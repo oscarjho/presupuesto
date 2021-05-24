@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import Error from "./Error";
 
 const Pregunta = () => {
   // definir el state
@@ -18,11 +19,13 @@ const Pregunta = () => {
       return;
     }
     //que hacer si pasa la validacion
+    setError(false);
   };
 
   return (
     <Fragment>
       <h2> Coloca Tu Presupuesto </h2>
+      {error ? <Error mensaje="El Presupuesto es Incorrecto" /> : null}
       <form onSubmit={agregarPresupuesto}>
         <input
           type="number"
