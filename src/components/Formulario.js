@@ -1,9 +1,25 @@
 import React, { useState } from "react";
 
 const Formulario = () => {
+  const [nombre, setNombre] = useState("");
+  const [cantidad, setCantidad] = useState(0);
+
+  // cuando el usuario agrega un gasto
+  const agregarGasto = (e) => {
+    e.preventDefault();
+
+    // validar
+
+    // construir el gasto
+
+    // enviar el gasto al componente principal
+
+    //resetear el form
+  };
+
   return (
     <div className="Formulario">
-      <form>
+      <form onSubmit={agregarGasto}>
         <h2>Agrega tus gastos aquí</h2>
         <div className="campo">
           <label>Nombre Gasto</label>
@@ -11,11 +27,19 @@ const Formulario = () => {
             type="text"
             className="u-full-width"
             placeholder="Ej. Transporte"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
           />
         </div>
         <div className="campo">
           <label>Cantidad Gasto</label>
-          <input type="number" className="u-full-width" placeholder="Ej. 300" />
+          <input
+            type="number"
+            className="u-full-width"
+            placeholder="Ej. 300"
+            value={cantidad}
+            onChange={(e) => setCantidad(parseInt(e.target.value, 10))}
+          />
         </div>
         <input
           type="submit"
