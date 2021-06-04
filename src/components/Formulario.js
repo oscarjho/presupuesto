@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Error from "./Error";
+import { v4 as uuid } from "uuid";
 
 const Formulario = () => {
   const [nombre, setNombre] = useState("");
@@ -18,6 +19,12 @@ const Formulario = () => {
     setError(false);
 
     // construir el gasto
+    const gasto = {
+      nombre,
+      cantidad,
+      id: uuid(),
+    };
+    console.log(gasto);
 
     // enviar el gasto al componente principal
 
