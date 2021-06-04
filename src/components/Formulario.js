@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Error from "./Error";
 import { v4 as uuid } from "uuid";
 
-const Formulario = () => {
+const Formulario = ({ agregarNuevoGasto }) => {
   const [nombre, setNombre] = useState("");
   const [cantidad, setCantidad] = useState(0);
   const [error, setError] = useState(false);
@@ -24,11 +24,13 @@ const Formulario = () => {
       cantidad,
       id: uuid(),
     };
-    console.log(gasto);
 
     // enviar el gasto al componente principal
+    agregarNuevoGasto(gasto);
 
     //resetear el form
+    setNombre("");
+    setCantidad(0);
   };
 
   return (
