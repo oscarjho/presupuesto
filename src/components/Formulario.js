@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Error from "./Error";
 import { v4 as uuid } from "uuid";
 
-const Formulario = ({ agregarNuevoGasto }) => {
+const Formulario = ({ setGasto, setCrearGasto }) => {
   const [nombre, setNombre] = useState("");
   const [cantidad, setCantidad] = useState(0);
   const [error, setError] = useState(false);
@@ -26,7 +26,8 @@ const Formulario = ({ agregarNuevoGasto }) => {
     };
 
     // enviar el gasto al componente principal
-    agregarNuevoGasto(gasto);
+    setGasto(gasto);
+    setCrearGasto(true);
 
     //resetear el form
     setNombre("");
