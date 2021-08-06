@@ -1,13 +1,18 @@
 import React from "react";
-const Gasto = ({ gasto }) => {
+import PropTypes from "prop-types";
+
+const Gasto = ({ gasto, key }) => {
   return (
-    <li className="gastos">
+    <li key={key}>
       <p>
-        {gasto.nombre}
-        <span className="gasto"> $ {gasto.cantidad}</span>
+        {gasto.nombre} <span className="gasto"> $ {gasto.cantidad}</span>
       </p>
     </li>
   );
+};
+
+Gasto.propTypes = {
+  gasto: PropTypes.object.isRequired,
 };
 
 export default Gasto;
